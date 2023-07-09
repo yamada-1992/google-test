@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Google Api Demo</title>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="20628931414-6jfeg0hdme5h5ovs62u448nin06cg5or.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="799727235566-1el6ni0bij44vblr7ljpp43h7hgglpsa.apps.googleusercontent.com">
   </head>
   <body>
-    <h1>Please Sign In With Google!</h1>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div><br/>
-    <a id = "sign-out" href="#" onclick="signOut();">Sign out</a>
-    <p id = "name"></p>
-    <p id = "pfp"></p>
-    <p id = "email"></p>
-    <script src="script.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <script>
+  function onSignIn(googleUser) {
+ 
+    // プロフィールの取得
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId());// このIDをサーバに送ってはいけない
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail());
+ 
+    // トークンの取得（サーバーにはこちらを送信）
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log('token: ' + token);
+  }
+</script>
   </body>
 </html>
