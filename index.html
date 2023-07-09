@@ -1,26 +1,20 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="20628931414-6jfeg0hdme5h5ovs62u448nin06cg5or.apps.googleusercontent.com">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Google Api Demo</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="689385596111-j2ftspfib4fsui5lsck88pgibv2353ul.apps.googleusercontent.com">
   </head>
   <body>
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      }
-    </script>
+    <h1>Please Sign In With Google!</h1>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div><br/>
+    <a id = "sign-out" href="#" onclick="signOut();">Sign out</a>
+    <p id = "name"></p>
+    <p id = "pfp"></p>
+    <p id = "email"></p>
+    <script src="script.js"></script>
   </body>
 </html>
