@@ -1,8 +1,16 @@
 function onSignIn(googleUser) {
-    alert("hello")
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  var profile = googleUser.getBasicProfile();
+  document.getElementById('name').innerHTML = `Your name is: ${profile.getName()}`;
+  document.getElementById('pfp').innerHTML = `Your profile picture is here: ${profile.getImageUrl()}`;
+  document.getElementById('email').innerHTML =` Your email is ${profile.getEmail()}`;
+}
+
+function signOut() {
+   loggedIn = false;
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
   }
+  
+
